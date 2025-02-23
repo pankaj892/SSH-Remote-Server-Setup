@@ -58,23 +58,29 @@ ssh aws-alt-server
 
 ## 6. Installing fail2ban (Optional)
 I tried to install fail2ban on my server after connecting from my local machine
+
 Fail2ban is a package that attempts to ban connection attempts from an ip address after it fails to connect to the server. This is helpful in stopping cyber attacks on a server
 or if someone tries to launch a DoS/DDoS attack on our server
-Since I have Amazon Linux Server which is based upon RedHat so we will use yum package manager to install those
+
+Since I have Amazon Linux Server which is based upon RedHat so we will use yum package manager to install those you can use other package manager as per your distribution
+
 ``` bash
 $ sudo yum update
 $ sudo yum install fail2ban  
 ```
+
 After installing fail2ban we need to start the service and enable it so that it starts on boot
 ``` bash
 $ sudo systemctl start fail2ban
 $ sudo systemctl enable fail2ban
 ```
+
 Now fail2ban is installed and running on the server
 Configure fail2ban by creating a configuration file present in /etc/fail2ban/jail.local
 ``` bash
 $ sudo vi /etc/fail2ban/jail.local
 ```
+
 Add the following content to the file
 ``` bash
 [DEFAULT]
